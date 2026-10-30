@@ -45,9 +45,11 @@ python -m http.server 3000
 - **Orders & RFQ**: `purchase@shlshl.com`
 - **Group Freight Desk**: `shl@shlshl.com`
 - **Overseas Commercial Desk**: `overseas1@shlshl.com`
-- **WhatsApp / Direct Desks**: `+86 188 1653 3167` / `+86 131 2238 1453`
+- **Primary WhatsApp / Hotline**: `+86 131 2238 1453`
+- **Direct Sales Line**: `+86 188 1653 3167`
 
 ---
 
 ## 📄 License
 © 2026 SHL International Group. All rights reserved.
+
