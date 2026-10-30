@@ -14,7 +14,8 @@ A modern, high-performance, responsive Global B2B Pet Care Product Website and W
 This portal serves international business customers, importers, retail chains, and private-label brands across Europe, North America, the Middle East, Asia-Pacific, Africa, and Latin America.
 
 - **Production B2B Website**: [`index.html`](index.html) — Executive corporate aesthetic, product specification matrices, 5-layer interactive technology explorer, global logistics coordination, and RFQ submission engine.
-- **Internal Email Showcase Utility**: [`email_preview.html`](email_preview.html) — Standalone email campaign preview and HTML export utility for marketing and outbound commercial desks.
+- **Promotional Email Template V1 (Showcase)**: [mail_preview.html](email_preview.html) - Complete product range preview, sizing matrices, and HTML export utility for outbound commercial desks.
+- **Promotional Email Template V2 (Bulletproof Outlook/Gmail Edition)**: [promo_email_v2.html](promo_email_v2.html) - 100% email-client-proof nested table architecture (600px) that never breaks in Outlook Desktop, Gmail, or mobile apps. Includes one-click visual copy and WhatsApp dispatch.
 
 ---
 
