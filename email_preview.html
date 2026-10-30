@@ -281,6 +281,9 @@
 
         <!-- ACTION BUTTONS -->
         <div class="flex items-center gap-1 sm:gap-1.5 shrink-0">
+          <button id="copy-visual-btn" class="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 transition shadow-sm" title="Copy Designed Email directly for Outlook or Gmail (Ctrl+V ready!)">
+            <span>✨ <span class="hidden sm:inline">Copy for Outlook/Gmail</span><span class="sm:hidden">Outlook</span></span>
+          </button>
           <button id="copy-html-btn" class="px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1 transition" title="Copy Full Email HTML Container">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
             <span class="hidden sm:inline">HTML</span>
@@ -1303,6 +1306,7 @@
     const viewMobileBtn = document.getElementById('view-mobile-btn');
     const viewMockupBtn = document.getElementById('view-mockup-btn');
     const viewFullBtn = document.getElementById('view-full-btn');
+    const copyVisualBtn = document.getElementById('copy-visual-btn');
     const copyHtmlBtn = document.getElementById('copy-html-btn');
     const copyTextBtn = document.getElementById('copy-text-btn');
     const downloadHtmlBtn = document.getElementById('download-html-btn');
@@ -1692,6 +1696,42 @@ Thank you.`);
     });
 
     // Copy Email HTML Container
+    // One-Click Visual Copy for Outlook / Gmail (Rich Text)
+    if (copyVisualBtn) {
+      copyVisualBtn.addEventListener('click', async () => {
+        try {
+          // Select content for legacy execCommand fallback
+          const range = document.createRange();
+          range.selectNode(emailContainer);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+
+          if (navigator.clipboard && window.ClipboardItem) {
+            const htmlBlob = new Blob([emailContainer.outerHTML], { type: 'text/html' });
+            const textBlob = new Blob([plainTextPitch], { type: 'text/plain' });
+            await navigator.clipboard.write([
+              new ClipboardItem({
+                'text/html': htmlBlob,
+                'text/plain': textBlob
+              })
+            ]);
+          } else {
+            document.execCommand('copy');
+          }
+          window.getSelection().removeAllRanges();
+          showToast('✅ Copied formatted email! Open Outlook or Gmail, press Ctrl + V to paste.');
+        } catch (err) {
+          try {
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            showToast('✅ Copied formatted email! Open Outlook or Gmail, press Ctrl + V to paste.');
+          } catch(e) {
+            showToast('⚠️ Please select the email with Ctrl+A, then press Ctrl+C to copy.');
+          }
+        }
+      });
+    }
+
     copyHtmlBtn.addEventListener('click', () => {
       const htmlToCopy = emailContainer.outerHTML;
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1706,43 +1746,45 @@ Thank you.`);
     });
 
     // Copy Plain Text Email Pitch
-    const plainTextPitch = `Subject: Direct Factory Pet Diapers & Training Pads - 2026 Wholesale Catalogue (SHL International)
+    const plainTextPitch = `Subject: Global Wholesale Pet Diapers & Training Pads - Direct Factory Supply (SHL International)
 
-Dear Pet Category Buying Team,
+Dear Category Sourcing & Buying Team,
 
-I hope this email finds you well.
+I hope this message finds you well.
 
-I am reaching out from SHL International Group (Pet Care & Hygiene Division - shlshl.com). We are a long-standing direct manufacturer and global supply partner specializing in premium pet hygiene consumables:
+I am reaching out from SHL International Group (Pet Care & Hygiene Division - shlshl.com). We are a global supply partner and direct manufacturing sourcing specialist for premium pet hygiene consumables, supporting distributors, retail chains, and private-label brands worldwide:
 
 1. SHL Premium Pet Diapers (Male Wraps & Female Incontinence Diapers)
-   - Features: Japanese Sumitomo SAP rapid absorption, 3D elastic leak-proof barrier, wetness indicator, and breathable backsheet.
+   - Features: Japanese Sumitomo SAP rapid gel lock, 360° elastic leak-proof barrier, wetness indicator, and breathable cloth-like backsheet.
    - Available in Sizes: S, M, L, XL.
 
 2. SHL 5-Layer Composite Pet Training Pads
-   - Features: Diamond embossed channeling, high-capacity polymer gel, tear-resistant non-woven surface, and 100% waterproof PE bottom film.
-   - Available in Standard White & Activated Charcoal Odour-Control options.
-   - Standard retail pack counts: S (100 pcs), M (50 pcs), L (40 pcs), XL (20 pcs).
+   - Features: Diamond-quilted wicking top sheet, high-capacity polymer core, tear-resistant non-woven surface, and 100% waterproof PE bottom film.
+   - Available in: Standard White & Activated Charcoal Odour-Control options.
+   - Dimensions: 33x45cm, 45x60cm, 60x60cm, 60x90cm (Custom sizes available).
 
-WHY LEADING RETAILERS & DISTRIBUTORS PARTNER WITH SHL:
-* Direct Manufacturer Pricing: 0% broker/middleman markup, boosting your category gross margins by up to 55%.
-* Strict Quality Standards: ISO 9001 certified manufacturing, batch testing to AQL 2.5 standards.
-* Full OEM & Private Label: Custom packaging design, custom SAP grammage ratios, and barcode printing.
-* Integrated One-Stop Logistics: Handled by our group freight network (WCAworld ID: 116248, JCtrans, DF Alliance, TCDA, Millennium) with FOB, CIF, or full DDP door-to-door delivery to UK/EU warehouses.
+WHY INTERNATIONAL BUYERS PARTNER WITH SHL:
+* Factory-Direct Competitive Supply: Scalable production with full OEM / Private Label customization (die-lines, custom packaging, retail barcodes).
+* Certified Quality Standards: ISO 9001:2015 certified partner manufacturing, strict batch testing to AQL 2.5 standards, in-line absorption and seal integrity testing.
+* Integrated One-Stop Logistics: Handled by our group freight network (WCAworld Member ID: 116248, JCtrans, DF Alliance, TCDA, Millennium) with FOB, CIF, or full DDP door-to-door delivery.
+* 24-Hour Sample Evaluation: Complimentary evaluation packs dispatched internationally within 24-48 hours.
 
 WOULD YOU LIKE AN EVALUATION SAMPLE PACK?
 We dispatch evaluation sample kits via air express within 24-48 hours.
 
-Please feel free to contact our direct sales desk:
-- Inquiries & Orders: purchase@shlshl.com
-- Group Desk: shl@shlshl.com
-- Overseas Commercial Desk: overseas1@shlshl.com
-- Primary WhatsApp: +86 131 2238 1453
-- Direct Sales: +86 188 1653 3167
-- Web Portal: https://www.shlshl.com
-- Head Office: Building E1, 938 Jinshajiang Road, Putuo District, Shanghai 200333, China
+Please let us know your target product lines, estimated volume, and destination port/country. Our export team will provide formal specifications and pricing within 24 hours.
+
+Official Corporate Portal: https://www.shlshl.com
+Live B2B Product Portal: https://niloy-datta.github.io/shl-pet-care-showcase/
 
 Best regards,
-SHL International Group (Pet Care Export Division)`;
+
+Commercial Export Team | Pet Care Division
+SHL International Group
+Email: purchase@shlshl.com | overseas1@shlshl.com
+Primary WhatsApp / Hotline: +86 131 2238 1453
+Direct Commercial Desk: +86 188 1653 3167
+HQ: Building E1, 938 Jinshajiang Road, Putuo District, Shanghai 200333, China`;
 
     if (copyTextBtn) {
       copyTextBtn.addEventListener('click', () => {
