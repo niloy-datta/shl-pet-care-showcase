@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>SHL Pet Care — Premium Pet Diapers &amp; Training Pads | Global B2B Supply &amp; OEM Manufacturing</title>
-  <meta name="description" content="Direct international manufacturer supply of premium disposable pet diapers, male wraps, and 5-layer composite training pads. Sourcing, OEM private label packaging, and global logistics coordination by SHL International.">
+  <meta name="description" content="International sourcing of pet diapers, male wraps and training pads, with customizable packaging, private-label options and global delivery coordination by SHL International.">
   <meta name="keywords" content="wholesale pet diapers, disposable male dog wraps, 5 layer pet training pads, private label pet care, OEM puppy pee pads, SHL International, pet hygiene manufacturer">
   <meta name="author" content="SHL International Group">
   <link rel="canonical" href="https://niloy-datta.github.io/shl-pet-care-showcase/">
@@ -2236,6 +2236,40 @@
       .direct-contact-email { font-size: .86rem; }
     }
 
+
+    /* Campaign landing page refinements: prioritize WhatsApp on small screens */
+    @media (max-width: 1120px) and (min-width: 993px) {
+      .nav-links, .nav-cta-btn { display: none; }
+      .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      .top-bar { display: none; }
+      .mobile-quick-actions {
+        grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr);
+        padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
+      }
+      .mobile-quick-actions .mobile-quick-whatsapp {
+        background: linear-gradient(120deg, #0e806d, #076552);
+        color: #fff;
+        border: 0;
+        box-shadow: 0 6px 20px rgba(5, 104, 76, .14);
+      }
+      .mobile-quick-actions .mobile-quick-email {
+        background: #eef7f2;
+        color: #0b594b;
+        border: 1px solid #cfdfd8;
+      }
+      .mobile-quick-actions a {
+        white-space: normal;
+        line-height: 1.2;
+        text-align: center;
+      }
+    }
+    @media (max-width: 350px) {
+      .mobile-quick-actions { gap: .4rem; padding-inline: .75rem; }
+      .mobile-quick-actions a { font-size: .7rem; padding-inline: .35rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -2246,7 +2280,7 @@
     <div class="container top-bar-inner">
       <div style="display: flex; align-items: center; gap: 0.75rem;">
         <span style="display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #0DAF98;"></span>
-        <span>Global B2B Supply &amp; Multimodal Logistics Coordination • Shanghai &amp; Ningbo Port Hubs</span>
+        <span>Pet Hygiene Products • Wholesale &amp; Private Label Solutions</span>
       </div>
       <div style="display: flex; align-items: center; gap: 1.5rem;">
         <span>Orders: <a href="mailto:purchase@shlshl.com" style="color: #F8FAFC; font-weight: 600;">purchase@shlshl.com</a></span>
@@ -3070,11 +3104,11 @@
 
   <!-- Mobile quick contact actions -->
   <nav class="mobile-quick-actions" aria-label="Quick contact">
-    <a href="#contact" class="mobile-quick-quote">
-      <span aria-hidden="true">✦</span> Contact Sales
+    <a href="https://wa.me/8613122381453?text=Hello%20SHL%20International%2C%20I%27m%20interested%20in%20your%20pet%20care%20products." class="mobile-quick-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat with SHL on WhatsApp">
+      <span aria-hidden="true">💬</span> WhatsApp Chat
     </a>
-    <a href="https://wa.me/8613122381453" class="mobile-quick-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact SHL by WhatsApp">
-      <span aria-hidden="true">◉</span> WhatsApp
+    <a href="mailto:purchase@shlshl.com?subject=Pet%20Care%20Product%20Enquiry" class="mobile-quick-email" aria-label="Email SHL Pet Care">
+      <span aria-hidden="true">✉</span> Email Us
     </a>
   </nav>
 
