@@ -2147,6 +2147,95 @@
       }
     }
 
+
+    /* Direct enquiry: zero fields, instant WhatsApp contact */
+    .rfq-layout {
+      grid-template-columns: minmax(0, 1.22fr) minmax(0, .78fr);
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+    }
+    .direct-contact-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f7fbf9 100%);
+      border: 1px solid #dbe9e3;
+      border-radius: 1.6rem;
+      padding: clamp(1.5rem, 3.7vw, 3.2rem);
+      box-shadow: 0 22px 60px rgba(13, 48, 47, 0.065);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .direct-contact-eyebrow {
+      display: inline-flex;
+      padding: .5rem .85rem;
+      border-radius: 100px;
+      background: #e5f6ed;
+      color: #086b59;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .085em;
+    }
+    .direct-contact-card h3 {
+      font-size: clamp(1.75rem, 2.6vw, 2.55rem);
+      line-height: 1.16;
+      letter-spacing: -.04em;
+      color: var(--primary-navy);
+      max-width: 22ch;
+    }
+    .direct-contact-card p {
+      color: var(--text-secondary);
+      max-width: 48ch;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .direct-contact-whatsapp {
+      min-height: 55px;
+      padding: .9rem 1.45rem;
+      border-radius: .88rem;
+      background: linear-gradient(120deg, #128d72, #0d715f);
+      box-shadow: 0 10px 28px rgba(14, 121, 100, .20);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: .7rem;
+      font-weight: 800;
+      color: #fff;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .direct-contact-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(14, 121, 100, .25);
+    }
+    .direct-contact-email {
+      display: inline-flex;
+      gap: .55rem;
+      align-items: center;
+      color: var(--primary-navy);
+      font-size: .93rem;
+      font-weight: 750;
+      min-height: 45px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .direct-contact-email:hover { color: var(--premium-teal); }
+    .direct-contact-note {
+      color: #60727a;
+      border-top: 1px solid #dde8e3;
+      padding-top: 1rem;
+      margin-top: .15rem;
+      font-size: .82rem;
+      line-height: 1.65;
+      width: 100%;
+    }
+    @media (max-width: 992px) {
+      .rfq-layout { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .direct-contact-card { padding: 1.35rem; border-radius: 1.2rem; }
+      .direct-contact-card h3 { font-size: 1.7rem; }
+      .direct-contact-whatsapp { width: 100%; }
+      .direct-contact-email { font-size: .86rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -2191,7 +2280,7 @@
 
       <!-- Primary CTA Button -->
       <a href="#contact" class="nav-cta-btn">
-        <span>Request a Quote</span>
+        <span>Contact Sales</span>
         <span>&rarr;</span>
       </a>
 
@@ -2211,8 +2300,8 @@
       <a href="#quality" class="mobile-nav-link" onclick="closeMobileMenu()">Quality Standards</a>
       <a href="#logistics" class="mobile-nav-link" onclick="closeMobileMenu()">Global Logistics</a>
       <a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()">Procurement FAQ</a>
-      <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact &amp; RFQ</a>
-      <a href="#contact" class="btn btn-primary" onclick="closeMobileMenu()" style="width: 100%; margin-top: 1rem;">Request a Tailored Quote</a>
+      <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact Sales</a>
+      <a href="#contact" class="btn btn-primary" onclick="closeMobileMenu()" style="width: 100%; margin-top: 1rem;">Contact Sales</a>
     </nav>
   </div>
 
@@ -2234,7 +2323,7 @@
           
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">
-              <span>Request a Tailored Quote</span>
+              <span>Contact Sales</span>
               <span>&rarr;</span>
             </a>
             <a href="#products" class="btn btn-secondary">
@@ -2331,8 +2420,8 @@
 
             <div style="border-top: 1px solid var(--border-light); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
               <span style="font-size: 0.8125rem; font-weight: 700; color: var(--text-secondary);">Standard &amp; custom order options</span>
-              <a href="#contact" class="btn btn-primary" onclick="selectProductInForm('diapers')" style="padding: 0.625rem 1.25rem; font-size: 0.875rem;">
-                Request Diaper Details
+              <a href="https://wa.me/8613122381453?text=Hello%20SHL%20International%2C%20I%27d%20like%20more%20details%20about%20pet%20diapers%20and%20male%20wraps." class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="padding: 0.625rem 1.25rem; font-size: 0.875rem;">
+                Ask About Diapers
               </a>
             </div>
           </article>
@@ -2771,145 +2860,26 @@
         
         <div class="section-header">
           <span class="chip chip-teal">Commercial Inquiries</span>
-          <h2>Request a Tailored Wholesale Quotation</h2>
+          <h2>Let’s Talk About Your Requirements</h2>
           <p>
-            Tell us your preferred products, customization needs, estimated volume and destination. Our team will review the details and provide a tailored quotation with available shipping terms.
+            Have questions about products, custom packaging, pricing or delivery? Message our team directly on WhatsApp—no forms, technical terms or order details required to get started.
           </p>
         </div>
 
         <div class="rfq-layout">
           
-          <!-- Left: Comprehensive Quotation Form -->
-          <div class="rfq-form-card">
-            <form id="rfq-form" onsubmit="handleRfqSubmit(event)">
-              
-              <!-- 1. Product Interest -->
-              <div class="form-group">
-                <label class="form-label">1. Product Line(s) of Interest *</label>
-                <div class="checkbox-grid">
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="product" value="Male Dog Wraps" checked>
-                    <span>Male Dog Wraps</span>
-                  </label>
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="product" value="Female Dog Diapers" checked>
-                    <span>Female Dog Diapers</span>
-                  </label>
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="product" value="Standard 5-Layer Pads" checked>
-                    <span>Standard Training Pads</span>
-                  </label>
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="product" value="Activated Charcoal Pads">
-                    <span>Charcoal Odor Pads</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- 2. Target Sizing -->
-              <div class="form-group">
-                <label class="form-label">2. Target Size Selection</label>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  <label class="checkbox-label" style="padding: 0.5rem 0.875rem;">
-                    <input type="checkbox" name="size" value="Size S" checked>
-                    <span>Size S</span>
-                  </label>
-                  <label class="checkbox-label" style="padding: 0.5rem 0.875rem;">
-                    <input type="checkbox" name="size" value="Size M" checked>
-                    <span>Size M</span>
-                  </label>
-                  <label class="checkbox-label" style="padding: 0.5rem 0.875rem;">
-                    <input type="checkbox" name="size" value="Size L" checked>
-                    <span>Size L</span>
-                  </label>
-                  <label class="checkbox-label" style="padding: 0.5rem 0.875rem;">
-                    <input type="checkbox" name="size" value="Size XL" checked>
-                    <span>Size XL</span>
-                  </label>
-                  <label class="checkbox-label" style="padding: 0.5rem 0.875rem;">
-                    <input type="checkbox" name="size" value="Custom Sizing">
-                    <span>Custom Sizing</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- 3. Volume & Incoterm Grid -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="form-group">
-                <div>
-                  <label class="form-label" for="rfq-volume">3. Estimated Order Volume *</label>
-                  <select id="rfq-volume" class="form-control" required>
-                    <option value="Trial Order (LCL / Palletized)">Trial Order (LCL / Palletized)</option>
-                    <option value="1 × 20GP Container" selected>1 × 20GP Container</option>
-                    <option value="1 × 40HQ Container">1 × 40HQ Container</option>
-                    <option value="Multi-Container Annual Supply">Multi-Container Annual Supply</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="form-label" for="rfq-incoterm">4. Preferred Incoterm *</label>
-                  <select id="rfq-incoterm" class="form-control" required>
-                    <option value="FOB (Shanghai / Ningbo Port)" selected>FOB (Shanghai / Ningbo Port)</option>
-                    <option value="CIF (Named Destination Port)">CIF (Named Destination Port)</option>
-                    <option value="DDP (Door-to-Door Delivery)">DDP (Warehouse Delivery)</option>
-                    <option value="EXW (Factory Direct)">EXW (Factory Direct)</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- 4. Destination Country & Port -->
-              <div class="form-group">
-                <label class="form-label" for="rfq-destination">5. Destination Country &amp; Port of Entry *</label>
-                <input type="text" id="rfq-destination" class="form-control" placeholder="e.g. Germany (Hamburg), United States (Los Angeles), UAE (Jebel Ali)..." required>
-              </div>
-
-              <!-- 5. Buyer Contact Details -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="form-group">
-                <div>
-                  <label class="form-label" for="rfq-company">Company / Business Name *</label>
-                  <input type="text" id="rfq-company" class="form-control" placeholder="Your Company Name" required>
-                </div>
-                <div>
-                  <label class="form-label" for="rfq-name">Buyer Full Name *</label>
-                  <input type="text" id="rfq-name" class="form-control" placeholder="Contact Person" required>
-                </div>
-              </div>
-
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="form-group">
-                <div>
-                  <label class="form-label" for="rfq-email">Business Email Address *</label>
-                  <input type="email" id="rfq-email" class="form-control" placeholder="procurement@company.com" required>
-                </div>
-                <div>
-                  <label class="form-label" for="rfq-phone">Phone / WhatsApp Number</label>
-                  <input type="tel" id="rfq-phone" class="form-control" placeholder="+1 / +44 / +86 ...">
-                </div>
-              </div>
-
-              <!-- 6. Additional Notes -->
-              <div class="form-group">
-                <label class="form-label" for="rfq-notes">6. Custom Requirements or Sample Requests</label>
-                <textarea id="rfq-notes" class="form-control" rows="3" placeholder="Specify OEM artwork requirements, target grammage, sample kit dispatch address, or target delivery date..."></textarea>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="rfq-actions-grid">
-                <button type="button" onclick="submitViaEmail()" class="btn btn-primary" style="width: 100%;">
-                  <span>✉️ Submit RFQ via Email</span>
-                </button>
-                <button type="button" onclick="submitViaWhatsapp()" class="btn btn-teal" style="width: 100%;">
-                  <span>💬 Submit via WhatsApp</span>
-                </button>
-              </div>
-
-              <div style="margin-top: 1rem; text-align: center;">
-                <button type="button" onclick="copyRfqSummary()" style="background: transparent; border: none; font-size: 0.8125rem; font-weight: 700; color: var(--text-secondary); cursor: pointer; text-decoration: underline;">
-                  📋 Copy Structured RFQ Details to Clipboard
-                </button>
-              </div>
-
-              <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 1rem;">
-                Your enquiry is routed directly to SHL International's commercial export desk. Standard reply within 24 business hours.
-              </p>
-            </form>
+          <!-- Direct contact: no customer form required -->
+          <div class="direct-contact-card">
+            <span class="direct-contact-eyebrow">LET'S CONNECT</span>
+            <h3>Interested in our pet care products?</h3>
+            <p>Tell us what you're looking for on WhatsApp. We can discuss product options, customization, samples and pricing directly—no forms to fill out.</p>
+            <a class="direct-contact-whatsapp" href="https://wa.me/8613122381453?text=Hello%20SHL%20International%2C%20I%27m%20interested%20in%20your%20pet%20care%20products.%20Please%20share%20details%20and%20pricing." target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">💬</span> Chat on WhatsApp <span aria-hidden="true">↗</span>
+            </a>
+            <a class="direct-contact-email" href="mailto:purchase@shlshl.com?subject=Pet%20Care%20Product%20Enquiry">
+              <span aria-hidden="true">✉️</span> Prefer email? Contact our team
+            </a>
+            <div class="direct-contact-note">Our team will review your enquiry and discuss the next steps with you.</div>
           </div>
 
           <!-- Right: Direct Channels & Authentic Mascot Visual -->
@@ -3061,7 +3031,7 @@
             <li><a href="#quality">Quality Protocols</a></li>
             <li><a href="#logistics">Global Logistics</a></li>
             <li><a href="#faq">Procurement FAQ</a></li>
-            <li><a href="#contact">Request Quotation</a></li>
+            <li><a href="#contact">Contact Sales</a></li>
             <li><a href="email_preview.html" style="color: #F5B544; font-weight: 600;">Promotional Email V1 (Showcase) &rarr;</a></li>
             <li><a href="promo_email_v2.html" style="color: #0DAF98; font-weight: 600;">Promotional Email V2 (Bulletproof) &rarr;</a></li>
           </ul>
@@ -3101,18 +3071,13 @@
   <!-- Mobile quick contact actions -->
   <nav class="mobile-quick-actions" aria-label="Quick contact">
     <a href="#contact" class="mobile-quick-quote">
-      <span aria-hidden="true">✦</span> Request a Quote
+      <span aria-hidden="true">✦</span> Contact Sales
     </a>
     <a href="https://wa.me/8613122381453" class="mobile-quick-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact SHL by WhatsApp">
       <span aria-hidden="true">◉</span> WhatsApp
     </a>
   </nav>
 
-  <!-- Floating Toast Notification -->
-  <div class="toast" id="toast">
-    <span id="toast-icon">✓</span>
-    <span id="toast-message">Notification message</span>
-  </div>
 
   <!-- Interactive JavaScript Logic -->
   <script>
@@ -3271,166 +3236,6 @@
       }
     }
 
-    // Select Product in form shortcut
-    function selectProductInForm(type) {
-      const form = document.getElementById('rfq-form');
-      if (type === 'diapers') {
-        document.querySelector('input[name="product"][value="Male Dog Wraps"]').checked = true;
-        document.querySelector('input[name="product"][value="Female Dog Diapers"]').checked = true;
-      } else if (type === 'pads') {
-        document.querySelector('input[name="product"][value="Standard 5-Layer Pads"]').checked = true;
-        document.querySelector('input[name="product"][value="Activated Charcoal Pads"]').checked = true;
-      }
-    }
-
-    // RFQ Data Extraction
-    function getRfqData() {
-      const products = Array.from(document.querySelectorAll('input[name="product"]:checked')).map(cb => cb.value);
-      const sizes = Array.from(document.querySelectorAll('input[name="size"]:checked')).map(cb => cb.value);
-      const volume = document.getElementById('rfq-volume').value;
-      const incoterm = document.getElementById('rfq-incoterm').value;
-      const destination = document.getElementById('rfq-destination').value.trim();
-      const company = document.getElementById('rfq-company').value.trim();
-      const name = document.getElementById('rfq-name').value.trim();
-      const email = document.getElementById('rfq-email').value.trim();
-      const phone = document.getElementById('rfq-phone').value.trim();
-      const notes = document.getElementById('rfq-notes').value.trim();
-
-      return {
-        products: products.length ? products.join(', ') : 'Pet Diapers & Training Pads',
-        sizes: sizes.length ? sizes.join(', ') : 'Standard Assortment',
-        volume: volume || '1 × 20GP Container',
-        incoterm: incoterm || 'FOB Shanghai/Ningbo',
-        destination: destination || 'Unspecified Port',
-        company: company || 'International Buyer',
-        name: name || 'Commercial Procurement Team',
-        email: email || 'Unspecified Email',
-        phone: phone || 'Unspecified Phone',
-        notes: notes || 'None specified'
-      };
-    }
-
-    // Validate Required Fields
-    function validateRfq() {
-      const dest = document.getElementById('rfq-destination').value.trim();
-      const comp = document.getElementById('rfq-company').value.trim();
-      const name = document.getElementById('rfq-name').value.trim();
-      const mail = document.getElementById('rfq-email').value.trim();
-
-      if (!dest || !comp || !name || !mail) {
-        alert('Please complete all required fields (Destination, Company, Contact Name, and Business Email).');
-        return false;
-      }
-      return true;
-    }
-
-    // Toast Notification helper
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      const msg = document.getElementById('toast-message');
-      msg.textContent = message;
-      toast.style.display = 'flex';
-      setTimeout(() => {
-        toast.style.display = 'none';
-      }, 3500);
-    }
-
-    // Submit via Email
-    function submitViaEmail() {
-      if (!validateRfq()) return;
-      const d = getRfqData();
-      const subject = encodeURIComponent(`B2B Quotation Request: ${d.volume} - ${d.company}`);
-      const body = encodeURIComponent(`Dear SHL International Commercial Export Team,
-
-Please review our wholesale quotation request:
-
-COMMERCIAL SPECIFICATIONS:
-- Product Interest: ${d.products}
-- Target Sizes: ${d.sizes}
-- Estimated Volume: ${d.volume}
-- Preferred Incoterm: ${d.incoterm}
-- Destination Country & Port: ${d.destination}
-
-BUYER DETAILS:
-- Company Name: ${d.company}
-- Contact Person: ${d.name}
-- Business Email: ${d.email}
-- Phone / WhatsApp: ${d.phone}
-
-ADDITIONAL PROJECT NOTES & PACKAGING SPECS:
-${d.notes}
-
-Please provide a formal proforma quote, spec sheets, and current production lead times.
-
-Best regards,
-${d.name}
-${d.company}`);
-
-      window.location.href = `mailto:purchase@shlshl.com?cc=overseas1@shlshl.com&subject=${subject}&body=${body}`;
-      showToast('Opening your default email application with pre-filled RFQ...');
-    }
-
-    // Submit via WhatsApp
-    function submitViaWhatsapp() {
-      if (!validateRfq()) return;
-      const d = getRfqData();
-      const msg = `*SHL PET CARE — B2B QUOTATION REQUEST*
-Company: ${d.company}
-Contact Person: ${d.name}
-Business Email: ${d.email}
-Phone/WhatsApp: ${d.phone}
-
-*Order Specifications:*
-- Products: ${d.products}
-- Sizes: ${d.sizes}
-- Volume: ${d.volume}
-- Incoterm: ${d.incoterm}
-- Destination: ${d.destination}
-
-*Notes/Custom Packaging:*
-${d.notes}
-
-Please provide formal FOB/CIF pricing and current container availability.`;
-
-      window.open(`https://wa.me/8613122381453?text=${encodeURIComponent(msg)}`, '_blank');
-      showToast('Opening official SHL WhatsApp desk with your RFQ details...');
-    }
-
-    // Copy Structured RFQ Details
-    function copyRfqSummary() {
-      if (!validateRfq()) return;
-      const d = getRfqData();
-      const summary = `SHL PET CARE — B2B WHOLESALE RFQ SPECIFICATION
-=================================================
-Company Name: ${d.company}
-Contact Name: ${d.name}
-Business Email: ${d.email}
-Phone / WhatsApp: ${d.phone}
-
-PRODUCT SPECIFICATIONS:
-- Product Lines: ${d.products}
-- Target Sizes: ${d.sizes}
-- Order Volume: ${d.volume}
-- Desired Incoterm: ${d.incoterm}
-- Destination Country/Port: ${d.destination}
-
-PROJECT NOTES & PACKAGING:
-${d.notes}
-=================================================
-Target Contacts: purchase@shlshl.com | overseas1@shlshl.com
-Official Portal: https://www.shlshl.com`;
-
-      navigator.clipboard.writeText(summary).then(() => {
-        showToast('Complete RFQ details copied to clipboard!');
-      }).catch(() => {
-        alert('Could not copy to clipboard. Please copy manually.');
-      });
-    }
-
-    function handleRfqSubmit(e) {
-      e.preventDefault();
-      submitViaEmail();
-    }
   </script>
 </body>
 </html>
